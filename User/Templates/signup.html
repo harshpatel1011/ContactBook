@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContactBook - Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            
+            <div class="page-header">
+                <div class="header-text">
+                    <h1>Create Account</h1>
+                    <p>Join ContactBook today</p>
+                </div>
+            </div>
+
+            {% if messages %}
+            <div style="margin-bottom: 0.5rem; text-align: center;">
+                {% for message in messages %}
+                    <p style="color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <form method="POST" action="{% url 'signup' %}">
+                {% csrf_token %}
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label" for="username">Username</label>
+                        <input class="form-input" type="text" id="username" name="username" required autocomplete="username">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <input class="form-input" type="email" id="email" name="email" required autocomplete="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <input class="form-input" type="password" id="password" name="password" required autocomplete="new-password">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="password_confirm">Confirm Password</label>
+                        <input class="form-input" type="password" id="password_confirm" name="password_confirm" required autocomplete="new-password">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-primary">Sign Up</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContactBook - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="app-container">
+        <div class="main-content">
+            <div class="content-wrapper">
+                
+                <div class="page-header">
+                    <div class="header-text">
+                        <h1>Dashboard</h1>
+                        <p>Your ContactBook Profile</p>
+                    </div>
+                    {% if not user %}
+                    <div class="action-buttons">
+                        <a href="{% url 'login' %}" class="btn-primary">Log In</a>
+                        <a href="{% url 'signup' %}" class="btn-secondary">Sign Up</a>
+                    </div>
+                    {% else %}
+                    <div class="search-form">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <span class="form-label">{{ message }}</span>
+                            {% endfor %}
+                        {% endif %}
+                        <span class="form-label">{{ user.email }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+
+
+
+                {% if user %}
+                <div class="dossier-layout">
+                    <div class="dossier-sidebar">
+                        <div class="dossier-name">{{ user.username }}</div>
+                        <div class="dossier-id">User ID: {{ user.id }}</div>
+                        <div class="dossier-actions">
+                            <a href="{% url 'add_contact' %}" class="dossier-btn">Add Contact</a>
+                            <a href="{% url 'update_profile' %}" class="dossier-btn">Update Profile</a>
+                            <a href="{% url 'change_password' %}" class="dossier-btn">Change Password</a>
+                            <a href="{% url 'logout' %}" class="dossier-btn danger">Logout</a>
+                            <a href="{% url 'delete_account' %}" class="dossier-btn danger">Delete Account</a>
+                        </div>
+                    </div>
+                    <div class="dossier-main">
+                        <div class="dossier-section">
+                            <div class="page-header">
+                                <div class="action-buttons">
+                                    <form method="GET" action="{% url 'home' %}" class="search-form">
+                                        <input type="text" name="q" placeholder="Search contacts..." value="{{ request.GET.q|default:'' }}" class="search-input">
+                                        <button type="submit" class="btn-search" title="Search">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            {% if contacts %}
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Phone Number</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for contact in contacts %}
+                                        <tr>
+                                            <td><strong>{{ contact.name }}</strong></td>
+                                            <td>{{ contact.phone_number }}</td>
+                                            <td>
+                                                <div class="action-buttons">
+                                                    <a href="{% url 'edit_contact' contact.id %}" class="dossier-btn"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                                                    <a href="{% url 'delete_contact' contact.id %}" class="dossier-btn danger" onclick="return confirm('Are you sure you want to delete this contact?');"><i class="fa-solid fa-trash"></i> Delete</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {% else %}
+                            <p class="form-label">No contacts found. Click "Add Contact" to create one.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                {% else %}
+                <div class="auth-container">
+                    <div class="auth-card">
+                        <div class="page-header">
+                            <div class="header-text">
+                                <h2>Welcome to ContactBook</h2>
+                                <p>Please log in to view your dashboard.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

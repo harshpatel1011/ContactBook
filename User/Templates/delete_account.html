@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContactBook - Delete Account</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            
+            <div class="page-header">
+                <div class="header-text">
+                    <h1>Delete Account</h1>
+                    <p style="color: var(--danger);">Warning: This action cannot be undone.</p>
+                </div>
+            </div>
+
+            {% if messages %}
+            <div>
+                {% for message in messages %}
+                    <p class="form-label">{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <form method="POST" action="{% url 'delete_account' %}">
+                {% csrf_token %}
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label" for="password">Enter Password to Confirm</label>
+                        <input class="form-input" type="password" id="password" name="password" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary danger-action">Delete Account</button>
+            </form>
+            
+            <div class="auth-footer">
+                <a href="{% url 'home' %}">Cancel and Return to Dashboard</a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
