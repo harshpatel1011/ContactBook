@@ -7,6 +7,7 @@ import re
 import random
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.conf import settings
 
 
 def get_current_user(request):
@@ -151,7 +152,7 @@ def send_otp_email(email, otp):
     send_mail(
         "Your Verification Code",
         f"Your OTP is {otp}",
-        "noreply@contactbook.com",
+        settings.DEFAULT_FROM_EMAIL,
         [email],
         html_message=render_to_string("otp_email.html", {"otp": otp}),
         fail_silently=False,
