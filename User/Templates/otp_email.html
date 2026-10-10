@@ -1,121 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Verification Code</title>
-<style>
-  body, table, td { margin: 0; padding: 0; }
-  body {
-    background-color: #FAF8F5;
-    font-family: 'Inter', Arial, sans-serif;
-    color: #332D28;
-  }
-  .wrapper {
-    width: 100%;
-    padding: 40px 0;
-    background-color: #FAF8F5;
-  }
-  .container {
-    max-width: 480px;
-    margin: 0 auto;
-    background-color: #FFFFFF;
-    border: 1px solid #E3DDD5;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .header {
-    background-color: #332D28;
-    padding: 28px 32px;
-    text-align: center;
-  }
-  .header .logo {
-    font-family: 'Georgia', 'Playfair Display', serif;
-    font-size: 22px;
-    color: #FAF8F5;
-    letter-spacing: 0.5px;
-  }
-  .body-content {
-    padding: 40px 32px 32px 32px;
-    text-align: center;
-  }
-  .body-content h1 {
-    font-family: 'Georgia', 'Playfair Display', serif;
-    font-size: 24px;
-    color: #332D28;
-    margin: 0 0 12px 0;
-    font-weight: 600;
-  }
-  .body-content p {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #6E665F;
-    margin: 0 0 28px 0;
-  }
-  .otp-box {
-    display: inline-block;
-    background-color: #FAF8F5;
-    border: 1.5px dashed #D76945;
-    border-radius: 10px;
-    padding: 18px 36px;
-    margin-bottom: 28px;
-  }
-  .otp-code {
-    font-family: 'Courier New', monospace;
-    font-size: 34px;
-    font-weight: 700;
-    letter-spacing: 10px;
-    color: #D76945;
-  }
-  .expiry {
-    font-size: 13px;
-    color: #9C958F;
-    margin-bottom: 28px !important;
-  }
-  .divider {
-    border: none;
-    border-top: 1px solid #E3DDD5;
-    margin: 0 32px;
-  }
-  .footer {
-    padding: 24px 32px 32px 32px;
-    text-align: center;
-  }
-  .footer p {
-    font-size: 12px;
-    color: #9C958F;
-    line-height: 1.6;
-    margin: 0;
-  }
-</style>
-</head>
-<body>
-  <table class="wrapper" role="presentation" width="100%" cellpadding="0" cellspacing="0">
+{% extends 'base.html' %}
+
+{% block title %}Your Verification Code{% endblock %}
+
+
+
+{% block content %}
+<table class="email-wrapper" role="presentation" width="100%" cellpadding="0" cellspacing="0">
     <tr>
       <td>
-        <table class="container" role="presentation" cellpadding="0" cellspacing="0" align="center">
+        <table class="email-container" role="presentation" cellpadding="0" cellspacing="0" align="center">
           <tr>
-            <td class="header">
-              <span class="logo">ContactBook</span>
+            <td class="email-header">
+              <span class="email-logo">ContactBook</span>
             </td>
           </tr>
           <tr>
-            <td class="body-content">
+            <td class="email-body-content">
               <h1>Verify your identity</h1>
               <p>Use the one-time password below to complete your verification. Don't share this code with anyone.</p>
 
-              <div class="otp-box">
-                <span class="otp-code">{{ otp }}</span>
+              <div class="email-otp-box">
+                <span class="email-otp-code">{{ otp }}</span>
               </div>
 
-              <p class="expiry">This code expires in <strong>10 minutes</strong>.</p>
+              <p class="email-expiry">This code expires in <strong>10 minutes</strong>.</p>
             </td>
           </tr>
           <tr>
-            <td><hr class="divider"></td>
+            <td><hr class="email-divider"></td>
           </tr>
           <tr>
-            <td class="footer">
+            <td class="email-footer">
               <p>If you didn't request this code, you can safely ignore this email.<br>
               &copy; 2026 ContactBook. All rights reserved.</p>
             </td>
@@ -124,5 +39,4 @@
       </td>
     </tr>
   </table>
-</body>
-</html>
+{% endblock %}

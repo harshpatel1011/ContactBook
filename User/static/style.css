@@ -46,7 +46,7 @@ a {
 }
 
 /* Typography for Headings */
-h1, h2, h3, h4, h5, h6, .playfair {
+h1, h2 {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
     letter-spacing: 0.02em;
@@ -227,129 +227,11 @@ body {
 /* Ensure the table cell borders don't look weird on hover */
 
 /* Index Page Grid Cards */
-.student-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    padding: 1rem 0;
-}
-
-@media (max-width: 768px) {
-    .student-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.student-card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    transition: all var(--transition-fast);
-}
-
-.student-card:hover {
-    border-color: rgba(0, 0, 0, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transform: translateY(-4px);
-}
-
-.card-top {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 1rem;
-}
-
-.card-avatar {
-    width: 60px;
-    height: 60px;
-    background-color: var(--text-primary);
-    color: var(--bg-card);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-}
-
-.card-info {
-    flex: 1;
-    min-width: 0;
-}
-
-.card-info h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.25rem;
-    color: var(--text-primary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.card-info p {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.card-body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.card-detail {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.9rem;
-    color: var(--text-primary);
-}
-
-.card-detail i {
-    color: var(--text-muted);
-    width: 16px;
-    text-align: center;
-}
-
-.card-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
-}
 
 .action-buttons {
     display: flex;
     gap: 1.25rem;
     align-items: center;
-}
-
-.btn-icon {
-    color: var(--text-secondary);
-    font-size: 1.15rem;
-    transition: all var(--transition-fast);
-    padding: 0.25rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-icon:hover {
-    color: var(--text-primary);
-    transform: scale(1.1);
-}
-
-.btn-delete:hover {
-    color: var(--danger);
 }
 
 /* Form Layouts */
@@ -395,80 +277,7 @@ body {
     border-color: var(--text-primary);
 }
 
-.form-section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
-    color: var(--text-primary);
-}
-
 /* Detail Profile Layout */
-.profile-card {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.profile-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.profile-avatar {
-    width: 80px;
-    height: 80px;
-    background-color: var(--text-primary);
-    color: var(--bg-card);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-}
-
-.profile-title h2 {
-    font-size: 2.25rem;
-    margin-bottom: 0.25rem;
-}
-
-.profile-title p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.detail-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.detail-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.detail-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-secondary);
-    font-weight: 600;
-}
-
-.detail-value {
-    font-size: 1.05rem;
-    color: var(--text-primary);
-    font-weight: 500;
-}
 
 /* Dossier View Layout (Student Detail) */
 .dossier-layout {
@@ -518,14 +327,6 @@ body {
     letter-spacing: 2px;
 }
 
-.dossier-course {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.85);
-}
-
 .dossier-actions {
     margin-top: auto;
     display: flex;
@@ -573,84 +374,7 @@ body {
     }
 }
 
-.dossier-section h3 {
-    font-size: 1.25rem;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.dossier-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-}
-
-.dossier-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.dossier-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-secondary);
-    font-weight: 600;
-}
-
-.dossier-value {
-    font-size: 1.05rem;
-    color: var(--text-primary);
-}
-
 /* Bulk Delete Button */
-.btn-bulk-delete {
-    background-color: var(--bg-card);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius-sm);
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all var(--transition-fast);
-}
-
-.btn-bulk-delete:hover {
-    background-color: var(--danger);
-    color: white;
-    border-color: var(--danger);
-}
-
-.btn-bulk-delete {
-    background-color: var(--bg-card);
-    color: var(--text-primary);
-    border: 1px solid var(--text-primary);
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius-sm);
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all var(--transition-fast);
-}
-
-.btn-bulk-delete:hover {
-    background-color: var(--danger);
-    color: #ffffff;
-    border-color: var(--danger);
-}
 
 /* Search Bar UI */
 .search-form {
@@ -778,4 +502,158 @@ body {
     background-color: var(--danger);
     color: #ffffff;
     border-color: var(--danger);
+}
+
+/* Extracted from inline styles and <style> tags */
+.text-danger {
+    color: var(--danger);
+}
+.message-container {
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+.message-text {
+    color: var(--primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+.flex-between-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.link-primary-small {
+    font-size: 0.85rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+.text-center {
+    text-align: center;
+}
+.otp-label {
+    text-align: center;
+    display: block;
+    margin-bottom: 15px;
+}
+.mt-5 {
+    margin-top: 5px;
+}
+.mt-15 {
+    margin-top: 15px;
+}
+.link-primary {
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Extracted from verify_otp.html */
+.otp-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.otp-input {
+    width: 48px;
+    height: 56px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    border: 1px solid #E3DDD5;
+    border-radius: 8px;
+    background-color: #FAF8F5;
+    color: #332D28;
+}
+.otp-input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(215, 105, 69, 0.15);
+}
+
+/* Extracted from otp_email.html */
+.email-wrapper, .email-wrapper table, .email-wrapper td { margin: 0; padding: 0; }
+.email-wrapper {
+    background-color: #FAF8F5;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #332D28;
+}
+.email-wrapper {
+    width: 100%;
+    padding: 40px 0;
+    background-color: #FAF8F5;
+}
+.email-container {
+    max-width: 480px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border: 1px solid #E3DDD5;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.email-header {
+    background-color: #332D28;
+    padding: 28px 32px;
+    text-align: center;
+}
+.email-header .email-logo {
+    font-family: 'Georgia', 'Playfair Display', serif;
+    font-size: 22px;
+    color: #FAF8F5;
+    letter-spacing: 0.5px;
+}
+.email-body-content {
+    padding: 40px 32px 32px 32px;
+    text-align: center;
+}
+.email-body-content h1 {
+    font-family: 'Georgia', 'Playfair Display', serif;
+    font-size: 24px;
+    color: #332D28;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+}
+.email-body-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #6E665F;
+    margin: 0 0 28px 0;
+}
+.email-otp-box {
+    display: inline-block;
+    background-color: #FAF8F5;
+    border: 1.5px dashed #D76945;
+    border-radius: 10px;
+    padding: 18px 36px;
+    margin-bottom: 28px;
+}
+.email-otp-code {
+    font-family: 'Courier New', monospace;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 10px;
+    color: #D76945;
+}
+.email-expiry {
+    font-size: 13px;
+    color: #9C958F;
+    margin-bottom: 28px !important;
+}
+.email-divider {
+    border: none;
+    border-top: 1px solid #E3DDD5;
+    margin: 0 32px;
+}
+.email-footer {
+    padding: 24px 32px 32px 32px;
+    text-align: center;
+}
+.email-footer p {
+    font-size: 12px;
+    color: #9C958F;
+    line-height: 1.6;
+    margin: 0;
 }
